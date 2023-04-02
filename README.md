@@ -1,6 +1,6 @@
 # Katzen
 
-![logo](./logo.jpg)
+<img src='./logo.jpg' />
 
 To start your Phoenix server:
 
