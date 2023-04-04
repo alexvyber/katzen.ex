@@ -1,5 +1,6 @@
 defmodule KatzenWeb.Router do
   use KatzenWeb, :router
+  import PhoenixStorybook.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -18,6 +19,15 @@ defmodule KatzenWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+  end
+
+  scope "/" do
+    storybook_assets()
+  end
+
+  scope "/", KatzenWeb do
+    pipe_through(:browser)
+    live_storybook("/storybook", backend_module: KatzenWeb.Storybook)
   end
 
   # Other scopes may use custom stacks.
