@@ -16,7 +16,8 @@ config :katzen, KatzenWeb.Endpoint,
   secret_key_base: "gV9oaYxshn5CHlVBqd+N8UaT+CwYrGZE6nVFMfonmjY/D4nfYVg+T4a7aeZ2cbL0",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]},
+    storybook_tailwind: {Tailwind, :install_and_run, [:storybook, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -48,7 +49,8 @@ config :katzen, KatzenWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/katzen_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/katzen_web/(controllers|live|components)/.*(ex|heex)$",
+      ~r"storybook/.*(ex|exs)$"
     ]
   ]
 
