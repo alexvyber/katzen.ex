@@ -1,0 +1,13 @@
+defmodule Katzen.Components.<%= inspect context.component_name %>Test do
+  use ComponentCase
+  import Katzen.Components.<%= inspect context.component_name %>
+
+  test "test" do
+    assigns = %{}
+    aseert true == true
+  end
+end
+
+
+
+

@@ -1,0 +1,17 @@
+defmodule Storybook.Katzen.Components.<%= inspect context.component_name %> do
+  use PhoenixStorybook.Story, :component
+  alias Elixir.KatzenWeb.Components.<%= inspect context.component_name %>
+
+  def function, do: &<%= inspect context.component_name %>.<%=  Macro.underscore(context.component_name) %>/1
+
+  def variations do
+    [
+      %Variation{
+        id: :default,
+        slots: [
+          "Hello World"
+        ]
+      }
+    ]
+  end
+end

@@ -1,0 +1,52 @@
+defmodule <%= inspect context.module %>.Components.<%= inspect context.component_name %> do
+  use Phoenix.Component
+
+  @configs %{
+    base: "",
+    variants: %{},
+    default_variants: %{},
+    compound_variants: []
+  }
+
+  @doc """
+  Renders ...
+
+  ## Default styles:
+
+  ```heex
+  <.<%= context.function_name %> class={Cvax.cx(["...", @class])}>...</.<%= context.function_name %>>
+  ```
+  Uses [Cvax.cx/1](https://hexdocs.pm/cvax/Cvax.html#cx/1) to generate class string from almost any input
+
+  ## Examples
+
+    <.<%= context.function_name %>>...</.<%= context.function_name %>>
+
+  ## Stories
+
+  **[<%= context.function_name %> stories](/#)**
+  """
+
+  @spec <%= context.function_name %>(map) :: Phoenix.LiveView.Rendered.t()
+  def <%= context.function_name %>(assigns) do
+    assigns =
+      assign(
+        assigns,
+        :variants,
+        Cvax.compose_variants(@configs)
+      )
+
+    ~H"""
+    <<%= context.tag_name %>
+       class={
+        Cvax.cx(
+          @variants.()
+          |> Twix.tw()
+        )
+      }
+    {@rest}>
+      <%%= render_slot(@inner_block) %>
+    </<%= context.tag_name %>>
+    """
+  end
+end
