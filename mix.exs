@@ -1,14 +1,20 @@
 defmodule Katzen.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/alexvyber/katzen.ex"
+  @version "0.1.0"
+
   def project do
     [
       app: :katzen,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
+      description: description(),
       aliases: aliases(),
+      package: package(),
+      docs: docs(),
       deps: deps()
     ]
   end
@@ -33,6 +39,10 @@ defmodule Katzen.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.7.2"},
+      {:cvax, "~> 0.1.0"},
+      {:phoenix_storybook, "~> 0.5.0"},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+      {:twix, "~> 0.3.0"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.18.16"},
@@ -60,5 +70,32 @@ defmodule Katzen.MixProject do
       "assets.build": ["tailwind default", "esbuild default"],
       "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
+  end
+
+  defp package do
+    [
+      maintainers: ["Alex Vyber"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => @source_url},
+      files: ~w(mix.exs priv lib assets README.md)
+    ]
+  end
+
+  defp docs() do
+    [
+      main: "readme",
+      # logo: "logo.png",
+      name: "Katzen",
+      source_ref: "v#{@version}",
+      # canonical: "http://hexdocs.pm/katzen",
+      source_url: @source_url,
+      extras: ["README.md"]
+    ]
+  end
+
+  defp description() do
+    """
+    TODO: write description
+    """
   end
 end
