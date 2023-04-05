@@ -7,7 +7,8 @@ defmodule Katzen.Components do
         Link,
         Typography.Headers,
         Typography.Text,
-        Separator
+        Separator,
+        Modal
       }
     end
   end
