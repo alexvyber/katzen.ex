@@ -28,8 +28,8 @@ defmodule Mix.Tasks.Phx.Gen.Component do
     web_module = web_module()
     core_components_module = Module.concat([web_module, :Components])
     app_name = String.to_atom(Macro.underscore(web_module))
-    app_folder = Path.join("lib", to_string(app_name))
-    components_folder = "components"
+    # app_folder = Path.join("lib", to_string(app_name))
+    components_folder = "katzen_components"
     # web_module_name = Module.split(web_module) |> List.last()
     # js_folder = "assets/js"
     # css_folder = "assets/css"
@@ -41,12 +41,13 @@ defmodule Mix.Tasks.Phx.Gen.Component do
       function_name: Macro.underscore(component_name),
       tag_name: Keyword.get(opts, :tag, "div"),
       components_module: core_components_module,
-      module: web_module
+      # web_module
+      module: "Katzen"
     }
 
     mapping = [
       {"component.ex.eex",
-       Path.join([app_folder, components_folder, Macro.underscore(component_name) <> ".ex"])},
+       Path.join(["lib", components_folder, Macro.underscore(component_name) <> ".ex"])},
       {"story.exs.eex",
        Path.join(["storybook", Macro.underscore(component_name) <> ".story.exs"])},
       {"test.exs.eex",

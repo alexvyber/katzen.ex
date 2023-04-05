@@ -1,4 +1,4 @@
-defmodule <%= inspect context.module %>.Components.<%= inspect context.component_name %> do
+defmodule <%= context.module %>.Components.<%= inspect context.component_name %> do
   use Phoenix.Component
 
   @configs %{
