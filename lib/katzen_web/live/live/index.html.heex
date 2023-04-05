@@ -1,0 +1,17 @@
+<.header>
+  Listing Products
+  <:actions>
+    <.link patch={~p"/live/modal"}>
+      <.button>New Product</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.modal
+  :if={@live_action in [:modal, :edit]}
+  id="product-modal"
+  show
+  on_cancel={JS.patch(~p"/live")}
+>
+  asdfasdf
+</.modal>
