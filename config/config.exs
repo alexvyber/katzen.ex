@@ -7,6 +7,10 @@
 # General application configuration
 import Config
 
+config :katzen,
+  ecto_repos: [Katzen.Repo],
+  generators: [binary_id: true]
+
 # Configures the endpoint
 config :katzen, KatzenWeb.Endpoint,
   url: [host: "localhost"],
@@ -15,7 +19,16 @@ config :katzen, KatzenWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Katzen.PubSub,
-  live_view: [signing_salt: "CCsVnRr2"]
+  live_view: [signing_salt: "T1BYgzl/"]
+
+# Configures the mailer
+#
+# By default it uses the "Local" adapter which stores the emails
+# locally. You can see the emails in your browser, at "/dev/mailbox".
+#
+# For production it's recommended to configure a different adapter
+# at the `config/runtime.exs`.
+config :katzen, Katzen.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,

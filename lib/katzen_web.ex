@@ -84,7 +84,7 @@ defmodule KatzenWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
-      import KatzenWeb.CoreComponents
+      import KatzenWeb.CoreComponents, except: [button: 1]
       import KatzenWeb.Gettext
       use Katzen.Components
 

@@ -1,5 +1,20 @@
 import Config
 
+# POSTGRES_DB=katzen_db
+# POSTGRES_USER=katzen_user
+# POSTGRES_PASSWORD=katzen_passwrod
+
+# Configure your database
+config :katzen, Katzen.Repo,
+  username: "katzen_user",
+  password: "katzen_password",
+  hostname: "localhost",
+  database: "katzen_db",
+  port: 2345,
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -13,7 +28,7 @@ config :katzen, KatzenWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "gV9oaYxshn5CHlVBqd+N8UaT+CwYrGZE6nVFMfonmjY/D4nfYVg+T4a7aeZ2cbL0",
+  secret_key_base: "gn1uX3hKXyB7GJFUasuEJTQd/4kseD7CXhBYMR+qCgeV166XHCdmDWqjPUtXz43E",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]},
@@ -66,3 +81,6 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# Disable swoosh api client as it is only required for production adapters.
+config :swoosh, :api_client, false

@@ -10,8 +10,12 @@ defmodule Katzen.Application do
     children = [
       # Start the Telemetry supervisor
       KatzenWeb.Telemetry,
+      # Start the Ecto repository
+      Katzen.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Katzen.PubSub},
+      # Start Finch
+      {Finch, name: Katzen.Finch},
       # Start the Endpoint (http/https)
       KatzenWeb.Endpoint
       # Start a worker by calling: Katzen.Worker.start_link(arg)
