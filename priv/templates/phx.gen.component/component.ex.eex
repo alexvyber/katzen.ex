@@ -27,6 +27,23 @@ defmodule <%= context.module %>.Components.<%= inspect context.component_name %>
   **[<%= context.function_name %> stories](/#)**
   """
 
+  attr(:class, :string, default: "", doc: "CSS classes")
+  
+  slot(:inner_block,
+    required: true,
+    doc: """
+    TODO: write doc
+    """
+  )
+
+  attr(:rest, :global,
+    doc: """
+    TODO: write doc
+    """
+  )
+
+
+
   @spec <%= context.function_name %>(map) :: Phoenix.LiveView.Rendered.t()
   def <%= context.function_name %>(assigns) do
     assigns =
