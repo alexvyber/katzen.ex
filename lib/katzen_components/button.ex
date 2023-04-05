@@ -160,6 +160,7 @@ defmodule Katzen.Components.Button do
       {@rest}
     >
       <Katzen.Components.Loading.spinner />
+      <%= render_slot(@inner_block) %>
     </button>
     """
   end
