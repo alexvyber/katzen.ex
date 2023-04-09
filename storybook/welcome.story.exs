@@ -2,6 +2,8 @@ defmodule Storybook.MyPage do
   # See https://hexdocs.pm/phoenix_storybook/PhoenixStorybook.Story.html for full story
   # documentation.
   use PhoenixStorybook.Story, :page
+  import Elixir.Katzen.Components.Link
+  use KatzenWeb, :live_view
 
   def doc, do: "Your very first steps into using Phoenix Storybook"
 
@@ -18,6 +20,7 @@ defmodule Storybook.MyPage do
   # This is a dummy fonction that you should replace with your own HEEx content.
   def render(assigns = %{tab: :welcome}) do
     ~H"""
+    <.a class="font-semibold text-xl mb-4" patch={~p"/"}>Back To Components</.a>
     <div class="lsb-welcome-page">
       <p>
         We generated your storybook with an example of a page and a component.
