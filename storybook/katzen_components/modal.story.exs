@@ -20,7 +20,10 @@ defmodule Storybook.Katzen.Components.Modal do
     [
       %Variation{
         id: :default,
-        slots: ["Modal body"]
+        slots: [
+          "!!! To close modal RELOAD page =((",
+          "<div>Problem with storybook, NOT MODAL itself</div>"
+        ]
       },
       %Variation{
         id: :with_title_and_subtitle,
