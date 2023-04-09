@@ -3,12 +3,12 @@ defmodule Katzen.Components.Modal do
   alias Phoenix.LiveView.JS
   import KatzenWeb.Gettext
 
-  @configs %{
-    base: "",
-    variants: %{},
-    default_variants: %{},
-    compound_variants: []
-  }
+  # @configs %{
+  #   base: "",
+  #   variants: %{},
+  #   default_variants: %{},
+  #   compound_variants: []
+  # }
 
   # @doc """
   # Renders ...
@@ -52,6 +52,12 @@ defmodule Katzen.Components.Modal do
   attr :on_cancel, JS, default: %JS{}
   slot :inner_block, required: true
 
+  attr(:size, :string,
+    default: "lg",
+    values: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "5xl", "6xl", "7xl", "full"],
+    doc: "modal size"
+  )
+
   attr(:class, :string, default: "", doc: "CSS classes")
 
   attr(:rest, :global,
@@ -61,30 +67,23 @@ defmodule Katzen.Components.Modal do
   )
 
   @spec modal(map) :: Phoenix.LiveView.Rendered.t()
-  # def modal(assigns) do
-  #   assigns =
-  #     assign(
-  #       assigns,
-  #       :variants,
-  #       Cvax.compose_variants(@configs)
-  #     )
-
-  #   ~H"""
-  #   <div
-  #     class={
-  #       Cvax.cx(
-  #         @variants.()
-  #         |> Twix.tw()
-  #       )
-  #     }
-  #     {@rest}
-  #   >
-  #     <%= render_slot(@inner_block) %>
-  #   </div>
-  #   """
-  # end
-
   def modal(assigns) do
+    assigns =
+      assign(assigns, :max_width, %{
+        "xs" => "max-w-xs",
+        "sm" => "max-w-sm",
+        "md" => "max-w-md",
+        "lg" => "max-w-lg",
+        "xl" => "max-w-xl",
+        "2xl" => "max-w-2xl",
+        "3xl" => "max-w-3xl",
+        "4xl" => "max-w-4xl",
+        "5xl" => "max-w-5xl",
+        "6xl" => "max-w-6xl",
+        "7xl" => "max-w-7xl",
+        "full" => "max-w-full"
+      })
+
     ~H"""
     <div
       id={@id}
@@ -93,7 +92,11 @@ defmodule Katzen.Components.Modal do
       data-cancel={JS.exec(@on_cancel, "phx-remove")}
       class="hidden relative z-50"
     >
-      <div id={"#{@id}-bg"} class="fixed inset-0 transition-opacity bg-black/50 backdrop-blur-sm" aria-hidden="true" />
+      <div
+        id={"#{@id}-bg"}
+        class="fixed inset-0 transition-opacity bg-black/50 backdrop-blur-sm"
+        aria-hidden="true"
+      />
       <div
         class="overflow-y-auto fixed inset-0"
         aria-labelledby={"#{@id}-title"}
@@ -102,21 +105,21 @@ defmodule Katzen.Components.Modal do
         aria-modal="true"
         tabindex="0"
       >
-        <div class="flex items-start justify-center sm:items-center min-h-full">
-          <div class="w-full max-w-3xl sm:p-6 lg:py-8">
+        <div class="flex justify-center items-start min-h-full sm:items-center">
+          <div class={Cvax.cx([" w-full sm:p-6 lg:py-8", Map.get(@max_width, @size, "max-w-3xl")])}>
             <%!-- shadow-lg ring-1 shadow-zinc-700/10 ring-zinc-700/10 --%>
             <.focus_wrap
               id={"#{@id}-container"}
               phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
               phx-key="escape"
               phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
-              class="hidden relative p-6 bg-white sm:rounded-xl  transition "
+              class="hidden relative p-6 bg-white dark:bg-slate-700 transition sm:rounded-xl"
             >
               <div class="absolute right-5 top-6">
                 <button
                   phx-click={JS.exec("data-cancel", to: "##{@id}")}
                   type="button"
-                  class="flex-none p-3 -m-3 opacity-20 hover:opacity-40"
+                  class="flex-none p-3 -m-3 opacity-30 hover:opacity-60"
                   aria-label={gettext("close")}
                 >
                   <.icon name="hero-x-mark-solid" class="w-5 h-5" />
@@ -133,7 +136,6 @@ defmodule Katzen.Components.Modal do
     """
   end
 
-  @spec icon(map) :: Phoenix.LiveView.Rendered.t()
   @doc """
   Renders a [Hero Icon](https://heroicons.com).
 
@@ -155,6 +157,7 @@ defmodule Katzen.Components.Modal do
   attr :name, :string, required: true
   attr :class, :string, default: nil
 
+  @spec icon(map) :: Phoenix.LiveView.Rendered.t()
   def icon(%{name: "hero-" <> _} = assigns) do
     ~H"""
     <span class={[@name, @class]} />

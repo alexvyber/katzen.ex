@@ -19,7 +19,8 @@ defmodule KatzenWeb.Router do
     pipe_through :browser
 
     live "/live", Live.Index, :index
-    live "/live/modal", Live.Index, :modal
+    live "/live/modal/", Live.Index, :modal
+    live "/live/modal/:size", Live.Index, :modal
 
     live "/products", ProductLive.Index, :index
     live "/products/new", ProductLive.Index, :new
