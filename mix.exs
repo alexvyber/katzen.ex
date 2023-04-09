@@ -1,7 +1,6 @@
 defmodule Katzen.MixProject do
   use Mix.Project
 
-
   @source_url "https://github.com/alexvyber/katzen.ex"
   @version "0.1.0"
 
@@ -58,8 +57,8 @@ defmodule Katzen.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:phoenix_storybook, "~> 0.5.0"},
-      {:cvax, "~> 0.1.0"},
-      {:twix, "~> 0.3.0"}
+      {:cvax, path: "/home/alexs/personal/ex/cvax.ex"},
+      {:twix, path: "/home/alexs/personal/ex/twix"}
     ]
   end
 
