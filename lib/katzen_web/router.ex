@@ -18,17 +18,16 @@ defmodule KatzenWeb.Router do
   scope "/", KatzenWeb do
     pipe_through :browser
 
-    live "/live", Live.Index, :index
-    live "/live/modal/", Live.Index, :modal
-    live "/live/modal/:size", Live.Index, :modal
+    live "/", Live.Index, :index
+    live "/modal/", Live.Index, :modal
+    live "/modal/:size", Live.Index, :modal
 
-    live "/products", ProductLive.Index, :index
-    live "/products/new", ProductLive.Index, :new
-    live "/products/:id/edit", ProductLive.Index, :edit
-    live "/products/:id", ProductLive.Show, :show
-    live "/products/:id/show/edit", ProductLive.Show, :edit
+    # live "/products", ProductLive.Index, :index
+    # live "/products/new", ProductLive.Index, :new
+    # live "/products/:id/edit", ProductLive.Index, :edit
+    # live "/products/:id", ProductLive.Show, :show
+    # live "/products/:id/show/edit", ProductLive.Show, :edit
 
-    get "/", PageController, :home
   end
 
   scope "/" do
