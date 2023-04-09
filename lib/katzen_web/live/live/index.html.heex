@@ -3,17 +3,24 @@
     <div class="flex flex-col gap-4 items-center">
       <img
         src="/images/logo.jpg"
-        class="w-auto h-80 rounded-xl ring-2 ring-offset-4 transition duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:-translate-y-2 ring-primary-200 hover:ring-primary-400"
+        class="w-auto h-80 rounded-xl ring-2 ring-offset-4 transition duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:-translate-y-2 ring-orange-200 hover:ring-orange-400"
       />
       <.h1>Katzen UI</.h1>
-    </div>
-
-    <div>
-      <.lead>See components in Phoenix StoryBook</.lead>
+      <div>
       <.a navigate={~p"/storybook"} variant="default" class="bg-indigo-600 font-semibold text-xl">
         Open Storybook
       </.a>
+      <.a
+        href="https://github.com/alexvyber/katzen.ex.git"
+        variant="default"
+        class="bg-gray-900 font-semibold text-xl"
+      >
+        Open GitHub
+      </.a>
     </div>
+    </div>
+
+    
 
     <div class="flex gap-3 flex-wrap">
       <.a patch={~p"/modal/sm"}>

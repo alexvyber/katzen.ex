@@ -13,19 +13,19 @@ defmodule Katzen.Components.Link do
     ],
     variants: %{
       variant: %{
-        "simple" => "hover:underline font-semibold text-primary-500",
+        "simple" => "hover:underline font-semibold text-orange-500",
         "inline" => "hover:underline ",
         "default" => [
-          "bg-primary-400 text-white",
+          "bg-orange-400 text-white",
           "hover:shadow-lg focus:shadow-lg active:shadow-xl hover:-translate-y-px",
-          "dark:bg-primary-400 dark:text-black"
+          "dark:bg-orange-400 dark:text-black"
         ],
         "outline" => [
-          "bg-transparent ring-1 ring-primary-400 hover:ring-primary-500 hover:ring-2",
-          "dark:ring-primary-400 dark:text-white"
+          "bg-transparent ring-1 ring-orange-400 hover:ring-orange-500 hover:ring-2",
+          "dark:ring-orange-400 dark:text-white"
         ],
         "subtle" => [
-          "bg-primary-100 text-neutral-900 hover:bg-primary-200",
+          "bg-orange-100 text-neutral-900 hover:bg-orange-200",
           "dark:bg-slate-700  dark:hover:bg-slate-600 dark:text-neutral-100"
         ],
         "ghost" => [
@@ -203,6 +203,7 @@ defmodule Katzen.Components.Link do
             class: @class
           )
         )
+        |> Twix.tw()
       }
       {@rest}
     >
@@ -233,6 +234,7 @@ defmodule Katzen.Components.Link do
             class: @class
           )
         )
+        |> Twix.tw()
       }
       {@rest}
     >
@@ -263,6 +265,7 @@ defmodule Katzen.Components.Link do
             class: @class
           )
         )
+        |> Twix.tw()
       }
       {@rest}
     >
