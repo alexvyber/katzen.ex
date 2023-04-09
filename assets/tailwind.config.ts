@@ -1,14 +1,11 @@
-// See the Tailwind configuration guide for advanced usage
-// https://tailwindcss.com/docs/configuration
+import type { Config } from "tailwindcss"
+import plugin from "tailwindcss/plugin"
+import defaultTheme from "tailwindcss/defaultTheme"
+import colors from "tailwindcss/colors"
+import fs from "node:fs"
+import path from "node:path"
 
-const plugin = require("tailwindcss/plugin")
-const defaultTheme = require("tailwindcss/defaultTheme")
-const colors = require("tailwindcss/colors")
-const fs = require("fs")
-const path = require("path")
-
-/** @type {import('tailwindcss').Config} \*/
-const config = {
+export default {
   content: [
     "./js/**/*.js",
     "../lib/*_web.ex",
@@ -27,22 +24,9 @@ const config = {
       colors: {
         primary: colors.orange,
 
-        some: {
-          shit: "#ffff00",
-        },
-
         brand: {
           DEFAULT: "#FD4F00",
         },
-      },
-      screens: {
-        xs: "384px",
-        "2xs": "512px",
-        base: "1120px",
-        ...defaultTheme.screens,
-      },
-      maxWidth: {
-        base: "1110px",
       },
     },
   },
@@ -71,18 +55,20 @@ const config = {
     //
     plugin(function ({ matchComponents, theme }) {
       let iconsDir = path.join(__dirname, "./vendor/heroicons/optimized")
-      let values = {}
+      let values = {} as Record<string, any>
       let icons = [
         ["", "/24/outline"],
         ["-solid", "/24/solid"],
         ["-mini", "/20/solid"],
       ]
+
       icons.forEach(([suffix, dir]) => {
         fs.readdirSync(path.join(iconsDir, dir)).map(file => {
           let name = path.basename(file, ".svg") + suffix
           values[name] = { name, fullPath: path.join(iconsDir, dir, file) }
         })
       })
+
       matchComponents(
         {
           hero: ({ name, fullPath }) => {
@@ -106,6 +92,4 @@ const config = {
       )
     }),
   ],
-}
-
-module.exports = config
+} satisfies Config
