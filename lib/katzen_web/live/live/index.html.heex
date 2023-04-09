@@ -9,15 +9,22 @@
     </div>
 
     <div>
-      <.link patch={~p"/live/modal/sm"}>
-        <.button>Open Modal</.button>
-      </.link>
-      <.link patch={~p"/live/modal/full"}>
-        <.button>Open Modal</.button>
-      </.link>
-      <.link patch={~p"/live/modal"}>
-        <.button>Open Modal</.button>
-      </.link>
+      <.lead>See components in Phoenix StoryBook</.lead>
+      <.a navigate={~p"/storybook"} variant="default" class="bg-indigo-600 font-semibold text-xl">
+        Open Storybook
+      </.a>
+    </div>
+
+    <div class="flex gap-3 flex-wrap">
+      <.a patch={~p"/modal/sm"}>
+        Open Modal
+      </.a>
+      <.a patch={~p"/modal/full"}>
+        Open Modal
+      </.a>
+      <.a patch={~p"/modal"}>
+        Open Modal
+      </.a>
     </div>
 
     <.modal
