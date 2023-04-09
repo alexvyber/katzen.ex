@@ -17,7 +17,7 @@ defmodule Katzen.Components.Link do
         "inline" => "hover:underline ",
         "default" => [
           "bg-orange-400 text-white",
-          "hover:shadow-lg focus:shadow-lg active:shadow-xl hover:-translate-y-px",
+          "hover:shadow-lg focus:shadow-lg active:shadow-xl hover:translate-y-px",
           "dark:bg-orange-400 dark:text-black"
         ],
         "outline" => [
@@ -44,7 +44,7 @@ defmodule Katzen.Components.Link do
       },
       padding: %{
         "default" => "py-3 px-4",
-        "none" => "padding-none",
+        "none" => "p-0",
         "lg" => "py-2.5 px-8 rounded-md"
       },
       rounded: %{

@@ -57,8 +57,10 @@ defmodule Katzen.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:phoenix_storybook, "~> 0.5.0"},
-      {:cvax, path: "/home/alexs/personal/ex/cvax.ex"},
-      {:twix, path: "/home/alexs/personal/ex/twix"}
+      # {:cvax, path: "/home/alexs/personal/ex/cvax.ex"},
+      {:cvax, "~> 0.1.1"},
+      # {:twix, path: "/home/alexs/personal/ex/twix"}
+      {:twix, "~> 0.3.0"},
     ]
   end
 
