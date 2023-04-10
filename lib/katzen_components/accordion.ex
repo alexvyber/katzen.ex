@@ -126,7 +126,6 @@ defmodule Katzen.Components.Accordion do
     |> JS.add_class("hidden", to: ".content-#{accordion_id}")
     |> JS.remove_class("hidden", to: "#content-#{accordion_id}-#{index}")
     |> JS.add_class("block", to: "#content-#{accordion_id}-#{index}")
-    |> JS.set_attribute({"data-opened-item", "#{accordion_id}-#{index}"}, to: "##{accordion_id}")
     |> JS.set_attribute({"data-open", "false"}, to: "[data-open='true']")
     |> JS.set_attribute({"data-open", "true"}, to: "#icon-#{accordion_id}-#{index}")
   end
