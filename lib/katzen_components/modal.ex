@@ -113,7 +113,7 @@ defmodule Katzen.Components.Modal do
               phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
               phx-key="escape"
               phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
-              class="hidden relative p-6 bg-white dark:bg-slate-700 transition sm:rounded-xl"
+              class="hidden relative p-6 bg-white transition sm:rounded-xl dark:bg-slate-700"
             >
               <div class="absolute right-5 top-6">
                 <button

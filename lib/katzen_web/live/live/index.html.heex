@@ -3,17 +3,17 @@
     <div class="flex flex-col gap-4 items-center">
       <img
         src="/images/logo.jpg"
-        class="w-auto h-80 rounded-xl ring-2 ring-offset-4 transition duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:-translate-y-2 ring-orange-200 hover:ring-orange-400"
+        class="w-auto h-80 rounded-xl ring-2 ring-orange-200 ring-offset-4 transition duration-300 ease-in-out hover:ring-orange-400 hover:shadow-xl hover:scale-105 hover:-translate-y-2"
       />
       <.h1>Katzen UI</.h1>
       <div>
-      <.a navigate={~p"/storybook"} variant="default" class="bg-indigo-600 font-semibold text-xl">
+      <.a navigate={~p"/storybook"} variant="default" class="text-xl font-semibold bg-indigo-600">
         Open Storybook
       </.a>
       <.a
         href="https://github.com/alexvyber/katzen.ex.git"
         variant="default"
-        class="bg-gray-900 font-semibold text-xl"
+        class="text-xl font-semibold bg-gray-900"
       >
         Open GitHub
       </.a>
@@ -22,7 +22,7 @@
 
     
 
-    <div class="flex gap-3 flex-wrap">
+    <div class="flex flex-wrap gap-3">
       <.a patch={~p"/modal/sm"}>
         Open Modal
       </.a>
@@ -71,7 +71,7 @@
       <div class="flex flex-col gap-6">
         <div>
           <.h4 offset="bottom">Basic</.h4>
-          <div class="flex gap-3 flex-wrap">
+          <div class="flex flex-wrap gap-3">
             <.button variant="default">default</.button>
             <.button variant="outline">outline</.button>
             <.button variant="subtle">ghost</.button>
@@ -86,7 +86,7 @@
         <div>
           <.h4 offset="bottom">Loading</.h4>
 
-          <div class="flex gap-3 flex-wrap">
+          <div class="flex flex-wrap gap-3">
             <.button loading spinner_placement="left" variant="default">default</.button>
             <.button loading spinner_placement="right" variant="outline">outline</.button>
             <.button loading spinner_placement="right" variant="subtle">ghost</.button>
@@ -105,7 +105,7 @@
         <div>
           <.h4 offset="bottom">Disabled</.h4>
 
-          <div class="flex gap-3 flex-wrap">
+          <div class="flex flex-wrap gap-3">
             <.button disabled href="https://example.com" variant="default">default</.button>
             <.button disabled href="https://example.com" variant="outline">outline</.button>
             <.button disabled href="https://example.com" variant="subtle">ghost</.button>
@@ -131,7 +131,7 @@
       <div class="space-y-6">
         <div>
           <.h4 offset="bottom">Href</.h4>
-          <div class="flex gap-3 flex-wrap justify-stretch items-center sm:justify-start">
+          <div class="flex flex-wrap gap-3 items-center sm:justify-start justify-stretch">
             <.a href="https://example.com" variant="default">default</.a>
             <.a href="https://example.com" variant="outline">outline</.a>
             <.a href="https://example.com" variant="subtle">ghost</.a>
@@ -142,7 +142,7 @@
         </div>
         <div>
           <.h4 offset="bottom">Patch</.h4>
-          <div class="flex gap-3 flex-wrap justify-stretch items-center sm:justify-start">
+          <div class="flex flex-wrap gap-3 items-center sm:justify-start justify-stretch">
             <.a patch={~p"/storybook"} variant="default">default</.a>
             <.a patch={~p"/storybook"} variant="outline">outline</.a>
             <.a patch={~p"/storybook"} variant="subtle">ghost</.a>
@@ -153,7 +153,7 @@
         </div>
         <div>
           <.h4 offset="bottom">Navigate</.h4>
-          <div class="flex gap-3 flex-wrap justify-stretch items-center sm:justify-start">
+          <div class="flex flex-wrap gap-3 items-center sm:justify-start justify-stretch">
             <.a navigate={~p"/storybook"} variant="default">default</.a>
             <.a navigate={~p"/storybook"} variant="outline">outline</.a>
             <.a navigate={~p"/storybook"} variant="subtle">ghost</.a>
@@ -164,7 +164,7 @@
         </div>
         <div>
           <.h4 offset="bottom">Disabled</.h4>
-          <div class="flex gap-3 flex-wrap justify-stretch items-center sm:justify-start">
+          <div class="flex flex-wrap gap-3 items-center sm:justify-start justify-stretch">
             <.a disabled href="https://example.com" variant="default">default</.a>
             <.a disabled href="https://example.com" variant="outline">outline</.a>
             <.a disabled href="https://example.com" variant="subtle">ghost</.a>
